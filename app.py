@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
+import converter
 
 app = Flask(__name__)
 
@@ -16,7 +17,8 @@ def upload_image():
         return render_template('upload.html', message='No file selected')
     if file:
         filename = secure_filename(file.filename)
-        file.save(f'uploads/{filename}')
+        # file.save(f'uploads/{filename}')
+        converter.convert(file)
         return render_template('upload.html', message='File uploaded successfully', file=filename)
 
 if __name__ == '__main__':
