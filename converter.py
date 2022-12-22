@@ -3,11 +3,6 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-# Open the two images
-image1 = Image.open("image1.jpg")
-image2 = Image.open("image2.jpg")
-
-
 x = 60
 y = 60
 
@@ -126,10 +121,7 @@ def addCentralText(img, text):
 def save(img):
     img.save("result.jpg")
 
-def main():
-    # input image with 4 imaages in form
-    image = Image.open("image1.jpg")
-
+def convert(image):
     # crop 1 image into 4
     crop(image)
 
@@ -152,4 +144,6 @@ def main():
     save(res4)
 
 if __name__ == "__main__":
-    main()
+    # input image with 4 imaages in form
+    image = Image.open("image1.jpg")
+    convert(image)
