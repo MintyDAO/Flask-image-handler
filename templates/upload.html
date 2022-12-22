@@ -1,0 +1,17 @@
+<form method="POST" enctype="multipart/form-data">
+  <input type="file" name="file">
+  <input type="submit" value="Upload">
+</form>
+
+{% if file %}
+  <p>File: {{ file }}</p>
+  <img src="/uploads/{{ file }}" alt="Uploaded image">
+{% endif %}
+
+{% if message %}
+  <p>{{ message }}</p>
+{% endif %}
+
+
+
+
