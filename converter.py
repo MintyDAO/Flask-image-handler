@@ -119,7 +119,7 @@ def addCentralText(img, text):
     return img
 
 def save(img):
-    img.save("result.jpg")
+    img.save('output/result.jpg')
 
 def convert(image):
     # crop 1 image into 4

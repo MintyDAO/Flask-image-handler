@@ -26,7 +26,7 @@ def upload_image():
         converter.convert(image)
 
         # return
-        return render_template('upload.html', message='File uploaded successfully', file=filename)
+        return render_template('upload.html', message='File uploaded and converted successfully, check output', file=filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
