@@ -88,7 +88,7 @@ def fourScquere(image1, image2):
     image2_square4 = image2.crop((square_size, square_size, square_size * 2, square_size * 2))
 
     # Create a new image that is twice the width and height of the original images
-    result = Image.new("RGB", (image1.width * 2, image1.height * 2))
+    result = Image.new("RGB", (image1.width * 1, image1.height * 2))
 
     # Paste the images into the result image in a grid pattern
     result.paste(image1_square1, (0, 0))
@@ -101,20 +101,13 @@ def fourScquere(image1, image2):
     result.paste(image2_square4, (square_size, square_size * 3))
     return result
 
-def addCentralText(img, text):
+def addText(img, text, x, y, font, fontSize):
     # Call draw Method to add 2D graphics in an image
     draw = ImageDraw.Draw(img)
     # Custom font style and font size
-    myFont = ImageFont.truetype('FreeMono.ttf', 45)
-
-    # text_width, text_height = draw.textsize(text, font=myFont)
-    #
-    # # Calculate the x and y coordinates to center the text
-    # x = (img.width - text_width) / 2
-    # y = (img.height - text_height) / 2
-
+    myFont = ImageFont.truetype(font, fontSize)
     # Add Text to an image
-    draw.text((130,200), text, font=myFont, fill=(255, 0, 0))
+    draw.text((x,y), text, font=myFont, fill=(255, 0, 0))
 
     return img
 
@@ -137,7 +130,7 @@ def convert(image):
     res3 = fourScquere(res, res2)
 
     # add text
-    res4 = addCentralText(res3, "My TEXT")
+    res4 = addText(res3, "My TEXT", 160, 220, 'FreeMono.ttf', 45)
 
 
     # save result
@@ -145,5 +138,5 @@ def convert(image):
 
 if __name__ == "__main__":
     # input image with 4 imaages in form
-    image = Image.open("image1.jpg")
+    image = Image.open("image1.png")
     convert(image)
